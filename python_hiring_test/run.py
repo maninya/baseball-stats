@@ -68,8 +68,9 @@ def calculate(row, comb):
                 value = my_round(r)
         except ZeroDivisionError:
             value = 0
-        newrow = [row.name, comb.Stat, comb.Split, comb.Subject, value]
-        results.loc[len(results)] = newrow
+        if value:
+            newrow = [row.name, comb.Stat, comb.Split, comb.Subject, value]
+            results.loc[len(results)] = newrow
 
 
 def combine(row, data):
